@@ -26,6 +26,8 @@ There seems to be no possibility to upload different sound effects to the A004BR
 
 Flash can be read with `flashrom -p ch341a_spi -r backup.bin` and written with `flashrom -p ch341a_spi -w flash-new.bin`.
 
+Note that for some reasons not known, only Sound 1 and Sound 2 are working, even if the module is not modified.
+
 ## Audio format
 
 Signed 16-bit PCM, Big-Endian, Stereo (L/R interleaved), 11025 Hz
@@ -94,7 +96,7 @@ python3 synth_core.py sample.wav out.wav  # synthesize with defaults, no GUI
 The headless analyzer exits with code 0 when compliant and 1 otherwise, so it
 can be used in scripts.
 
-## Required Python Packages
+### Required Python Packages
 
 All tools need Python 3.9 or newer. The following table lists the packages that have to be installed for each tool in addition to the standard library, together with the names of the corresponding Debian packages for an installation without pip.
 
@@ -108,6 +110,10 @@ All tools need Python 3.9 or newer. The following table lists the packages that 
 The module tkinter is part of the python.org installer on Windows, whereas it has to be installed as the package `python3-tk` on Debian. Note that the PyPI package `can` is an unrelated package and must not be installed in place of `python-can`, because both provide a module with the same name. All packages for every tool can be installed at once with:
 
     python3 -m pip install numpy scipy soundfile matplotlib python-can pyserial
+
+## Audio Examples
+
+A few WAV files are provided in `ExampleSounds`. Those were generated using the provided synthesizer. R143, R179 and R211 are sounds from the New York subway, ICEBr403 is a german high speed train departing and there's also some audio that mimics the famous Mad Max interceptor.
 
 ## Acknowledgments
 
